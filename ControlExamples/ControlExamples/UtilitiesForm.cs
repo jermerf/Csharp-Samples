@@ -27,7 +27,10 @@ namespace ControlExamples {
       OpenFileDialog dialog = new OpenFileDialog();
       DialogResult result = dialog.ShowDialog();
       if (File.Exists(dialog.FileName)) {
+        lblImageFile.Text = $"File: {dialog.FileName}";
         imgFile.Image = Image.FromFile(dialog.FileName);
+        Image img = imgFile.Image;
+
       }
     }
 
