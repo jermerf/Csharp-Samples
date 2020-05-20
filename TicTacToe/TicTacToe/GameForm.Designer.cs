@@ -23,7 +23,6 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
-      this.components = new System.ComponentModel.Container();
       this.button1 = new System.Windows.Forms.Button();
       this.button2 = new System.Windows.Forms.Button();
       this.button3 = new System.Windows.Forms.Button();
@@ -34,9 +33,6 @@
       this.button8 = new System.Windows.Forms.Button();
       this.button9 = new System.Windows.Forms.Button();
       this.lblStatus = new System.Windows.Forms.Label();
-      this.timer1 = new System.Windows.Forms.Timer(this.components);
-      this.comboBox1 = new System.Windows.Forms.ComboBox();
-      this.button10 = new System.Windows.Forms.Button();
       this.SuspendLayout();
       // 
       // button1
@@ -152,41 +148,15 @@
       this.lblStatus.AutoSize = true;
       this.lblStatus.Location = new System.Drawing.Point(12, 219);
       this.lblStatus.Name = "lblStatus";
-      this.lblStatus.Size = new System.Drawing.Size(35, 13);
+      this.lblStatus.Size = new System.Drawing.Size(37, 13);
       this.lblStatus.TabIndex = 9;
-      this.lblStatus.Text = "label1";
-      // 
-      // timer1
-      // 
-      this.timer1.Enabled = true;
-      this.timer1.Interval = 30;
-      this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-      // 
-      // comboBox1
-      // 
-      this.comboBox1.FormattingEnabled = true;
-      this.comboBox1.Location = new System.Drawing.Point(136, 297);
-      this.comboBox1.Name = "comboBox1";
-      this.comboBox1.Size = new System.Drawing.Size(121, 21);
-      this.comboBox1.TabIndex = 10;
-      // 
-      // button10
-      // 
-      this.button10.Location = new System.Drawing.Point(82, 259);
-      this.button10.Name = "button10";
-      this.button10.Size = new System.Drawing.Size(75, 23);
-      this.button10.TabIndex = 11;
-      this.button10.Text = "button10";
-      this.button10.UseVisualStyleBackColor = true;
-      this.button10.Click += new System.EventHandler(this.button10_Click);
+      this.lblStatus.Text = "Status";
       // 
       // GameForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(226, 331);
-      this.Controls.Add(this.button10);
-      this.Controls.Add(this.comboBox1);
+      this.ClientSize = new System.Drawing.Size(226, 243);
       this.Controls.Add(this.lblStatus);
       this.Controls.Add(this.button9);
       this.Controls.Add(this.button8);
@@ -201,6 +171,7 @@
       this.MinimizeBox = false;
       this.Name = "GameForm";
       this.Text = "TicTacToe";
+      this.Load += new System.EventHandler(this.GameForm_Load);
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -218,8 +189,5 @@
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Label lblStatus;
-    private System.Windows.Forms.Timer timer1;
-    private System.Windows.Forms.ComboBox comboBox1;
-    private System.Windows.Forms.Button button10;
   }
 }

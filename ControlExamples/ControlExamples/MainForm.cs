@@ -15,7 +15,53 @@ namespace ControlExamples {
 
     public MainForm() {
       InitializeComponent();
+
+      lblStatus.MouseMove += lblStatus_MouseMove;
+      this.MouseMove += lblStatus_MouseMove;
+      txtSendToUtils.KeyPress += txtInput_keyPress;
+      txtSendToUtils.KeyDown += txtInput_keyDown;
+      txtSendToUtils.KeyUp += txtInput_keyUp;
     }
+
+
+    private void lblStatus_MouseMove(object sender, MouseEventArgs e) {
+      lblStatus.Text = e.X + ", " + e.Y;
+    }
+
+    char pressedChar;
+    int repeatCount = 0;
+    private void txtInput_keyPress(object sender, KeyPressEventArgs e) {
+      if (e.KeyChar == pressedChar) {
+        repeatCount++;
+      } else {
+        repeatCount = 0;
+      }
+      pressedChar = e.KeyChar;
+      Console.WriteLine("Pressed " + pressedChar + ": " + repeatCount);
+    }
+
+    Keys pressedKey = Keys.None;
+
+    private void txtInput_keyDown(object sender, KeyEventArgs e) {
+      if (e.KeyCode == pressedKey) {
+        repeatCount++;
+      } else {
+        repeatCount = 0;
+      }
+      pressedKey = e.KeyCode;
+      Console.WriteLine("Down " + pressedKey + ": " + repeatCount);
+    }
+    private void txtInput_keyUp(object sender, KeyEventArgs e) {
+      if (e.KeyCode == pressedKey) {
+        repeatCount++;
+      } else {
+        repeatCount = 0;
+      }
+      pressedKey = e.KeyCode;
+      Console.WriteLine("Up " + pressedKey + ": " + repeatCount);
+    }
+
+
 
     private void utilities_Clicked(object sender, EventArgs e) {
       if(utils == null) {
