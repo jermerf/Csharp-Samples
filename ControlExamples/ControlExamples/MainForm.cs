@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
+using System.Windows.Forms; 
 
 namespace ControlExamples {
   public partial class MainForm : Form {
@@ -74,6 +75,32 @@ namespace ControlExamples {
 
     private void MainForm_Load(object sender, EventArgs e) {
       this.Location = new Point(100, -600);
+    }
+
+    
+    private void timerFrameCounter_Tick(object sender, EventArgs e) {
+      this.Refresh();
+    }
+
+    private void moveTree(int speed) {
+      imgTree.Left -= speed;
+      if (imgTree.Left < -imgTree.Width) {
+        imgTree.Left = this.Width + imgTree.Width;
+      }
+    }
+    
+    int baseSpeed = 15;
+    // Measured in 0.000 000 1 seconds or /10,000 to get miliseconds
+    long lastTime = DateTime.UtcNow.Ticks;
+    private void MainForm_Paint(object sender, PaintEventArgs e) {
+      long now = DateTime.UtcNow.Ticks;
+      double dt = (now - lastTime) / 10000.0;
+
+      lastTime = now;
+      Console.WriteLine(dt);
+      double scaleFactor = dt / timerFrameCounter.Interval;
+      int speed = Convert.ToInt32(baseSpeed * scaleFactor);
+      moveTree(speed);
     }
   }
 }

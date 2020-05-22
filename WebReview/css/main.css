@@ -1,0 +1,31 @@
+/* Comments only use multiline block style */
+/*
+selector {
+  styles
+}
+*/
+
+/* Nothing in front of selector means tag name */
+li {
+  background-color: #fab;
+}
+
+/* . in front of selector means class name */
+.styled {
+  color: purple;
+  font-weight: bold;
+}
+
+.bordered {
+  border: 2px dashed green;
+}
+
+/* # in front of selector means id */
+#specialKitty {
+  text-decoration: underline;
+}
+
+/* Cascade or, make more specific */
+ol li:last-child {
+  margin: 5px;
+}
