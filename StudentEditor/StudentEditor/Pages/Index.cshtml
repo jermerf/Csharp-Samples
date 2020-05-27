@@ -1,0 +1,62 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+
+    <form class="form-group" method="post">
+        <div class="row">
+            <div class="col">
+                <input class="form-control"
+                       name="fullname"
+                       placeholder="full name"
+                       required />
+            </div>
+            <div class="col">
+                <input class="form-control"
+                       type="number"
+                       name="age"
+                       placeholder="age"
+                       required />
+            </div>
+            <div class="col">
+                <input class="form-control"
+                       type="number"
+                       name="credits"
+                       placeholder="republic credits"
+                       required />
+            </div>
+            <div class="col">
+                <input class="btn btn-warning form-control" type="reset" />
+            </div>
+            <div class="col">
+                <input class="btn btn-info form-control" type="submit" />
+            </div>
+        </div>
+        
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Full Name</th>
+                <th>Age</th>
+                <th>Republic Credits</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var stu in Model.Students) {
+            <tr>
+                <td>@stu.fullname</td>
+                <td>@stu.age</td>
+                <td>@stu.republic_credits</td>
+            </tr>
+            }
+        </tbody>
+
+
+
+    </table>
+</div>
