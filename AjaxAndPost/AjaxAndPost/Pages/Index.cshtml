@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <form method="post" action="/Register" onsubmit="register(event)">
+        @Html.AntiForgeryToken()
+        <input name="name"
+               value="Stephen Harper"
+               placeholder="name" required />
+        <input name="email"
+               type="email"
+               value="ex@gov.ca"
+               placeholder="email" required />
+        <input name="password"
+               type="password"
+               value="irobot"
+               placeholder="password" required />
+        <input name="passwordConfirm"
+               type="password"
+               value="unmatched"
+               placeholder="confirm password" required />
+        <input type="submit" 
+               class="btn btn-success"
+               value="Register" required />
+    </form>
+    <div>
+        FYI: There are @Model.studentCount students
+    </div>
+</div>

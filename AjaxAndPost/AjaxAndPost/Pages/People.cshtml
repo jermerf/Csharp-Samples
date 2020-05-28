@@ -1,0 +1,27 @@
+﻿@page
+@model AjaxAndPost.Pages.PeopleModel
+@{
+    ViewData["Title"] = "People";
+}
+
+<h1>People</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Password</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model.people) {
+            <tr>
+                <td>@p.fullname</td>
+                <td>@p.email</td>
+                <td>@p.password</td>
+            </tr>
+        }
+    </tbody>
+</table>

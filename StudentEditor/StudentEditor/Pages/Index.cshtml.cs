@@ -40,10 +40,11 @@ namespace StudentEditor.Pages {
             refreshStudents();
         }
 
-        public void OnPost() {
-            var fullname = Request.Form["fullname"];
-            var age = Request.Form["age"];
-            var credits = Request.Form["credits"];
+        public void OnPost(string fullname, int age, int credits) {
+            //var fullname = Request.Form["fullname"];
+            //var age = Request.Form["age"];
+            //var credits = Request.Form["credits"];
+            
 
             SqlConnection conn = new SqlConnection(CONNECTION_STRING);
             conn.Open();
