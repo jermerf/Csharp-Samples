@@ -1,0 +1,68 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+
+    <div class="text-center">
+
+        <form class="card" method="post" action="/Add">
+            @Html.AntiForgeryToken()
+            <div class="card-body">
+                <input class="form-control" 
+                       name="text" 
+                       maxlength="50"
+                       placeholder="new todo item"/>
+                <br />
+                <input class="btn btn-success" type="submit" />
+            </div>
+        </form>
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>ToDo</td>
+                    <td>Complete</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var todo in Model.todos) {
+                <tr>
+                    <td>
+                        <button class="btn btn-warning" onclick="editItem(event)">
+                            <i class="mdi mdi-pencil"></i>
+                        </button>
+                    </td>
+                    <!-- Viewing -->
+                    <td>@todo.text</td>
+                    <!-- Editing -->
+                    <td>
+                        <form method="post">
+                            <input value="@todo.Id"
+                                   name="todoId"
+                                   type="hidden" />
+                            <input value="@todo.text"
+                                   name="updatedText"
+                                   class="form-control"
+                                   maxlength="50" />
+                        </form>
+                    </td>
+                    <td onclick="editComplete(event)">
+                        <form method="post" asp-page-handler="ToggleComplete">
+                            <input value="@todo.Id"
+                                    name="todoId"
+                                    type="hidden" />
+                            @if (todo.complete) {
+                                <i class="mdi mdi-checkbox-marked"></i>
+                            } else {
+                                <i class="mdi mdi-checkbox-blank-outline"></i>
+                            }
+                        </form>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
