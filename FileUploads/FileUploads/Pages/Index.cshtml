@@ -1,0 +1,18 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <form method="post" enctype="multipart/form-data">
+        <input name="password" placeholder="password" type="password"/>
+        <input name="UploadedFile" type="file" asp-for="UploadedFile" />
+        <input type="submit" />
+    </form>
+    <div class="list-group">
+        @foreach(var f in Model.fileList) {
+            <a href="/uploads/@f" class="list-group-item list-group-item-action">@f</a>
+        }
+    </div>
+</div>
