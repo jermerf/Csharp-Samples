@@ -12,7 +12,11 @@
     </form>
     <div class="list-group">
         @foreach(var f in Model.fileList) {
-            <a href="/uploads/@f" class="list-group-item list-group-item-action">@f</a>
+            <a href="/uploads/@f.name" class="list-group-item list-group-item-action">@f.name</a>
+            @if (f.isImage) {
+                <img class="uploaded" src="uploads/@f.name" />
+            }
+            
         }
     </div>
 </div>
