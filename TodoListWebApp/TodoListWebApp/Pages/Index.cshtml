@@ -52,8 +52,8 @@
                     <td onclick="editComplete(event)">
                         <form method="post" asp-page-handler="ToggleComplete">
                             <input value="@todo.Id"
-                                    name="todoId"
-                                    type="hidden" />
+                                   name="todoId"
+                                   type="hidden" />
                             @if (todo.complete) {
                                 <i class="mdi mdi-checkbox-marked"></i>
                             } else {

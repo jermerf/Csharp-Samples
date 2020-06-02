@@ -1,0 +1,25 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+    ViewData["CurrentPage"] = "home";
+}
+
+    <div class="text-center">
+        <div class="card">
+        <div class="card-body">
+            <input id="loguser" value="stephen" class="form-control" />
+            <input id="logpass" value="harper" type="text" class="form-control" />
+            <button onclick="login()" class="btn btn-success">Login</button>
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-body">
+            <input id="reguser" value="stephen" class="form-control" />
+            <input id="regpass" value="harper" type="text" class="form-control" />
+            <input id="regpassconfirm" value="harper" type="text" class="form-control" />
+            <button onclick="register()" class="btn btn-success">Register</button>
+        </div>
+    </div>
+        <h1>@Model.Username</h1>
+</div>
