@@ -61,6 +61,7 @@ namespace MessageBoard.Controllers {
         }
 
         private void loginSuccessful(BoardUser user) {
+            HttpContext.Session.SetInt32("userId", user.Id);
             HttpContext.Session.SetString("username", user.username);
         }
 
